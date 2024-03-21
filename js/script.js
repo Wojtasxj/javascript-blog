@@ -28,35 +28,34 @@ const titleClickHandler = function(event){
 
 }
   
-  const links = document.querySelectorAll('.titles a');
-    for(let link of links){
-    link.addEventListener('click', titleClickHandler);
-  }
+  
   /* kolejny submoduł */
   const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
 
-function generateTitleLinks(){
+  function generateTitleLinks() {
+    const titleList = document.querySelector(optTitleListSelector);
+    titleList.innerHTML = '';
+    const articles = document.querySelectorAll(optArticleSelector);
+    let html = '';
+    for (let article of articles) {
+      const articleId = article.getAttribute('id');
+      console.log('articleId:', articleId);
+      const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+      console.log('articleTitle:', articleTitle);
+      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      console.log('linkHTML:', linkHTML);
+      html = html + linkHTML;
+    }
+    titleList.innerHTML = html;
 
-  /* remove contents of titleList */
-  const titleList = document.querySelector(optTitleListSelector);
+    const links = document.querySelectorAll('.titles a');
+    console.log('links:', links);
+    for(let link of links){
+      link.addEventListener('click', titleClickHandler);
+    }
   
-  function clearMessages(){
-	document.getElementById('titleList').innerHTML = '';
   }
-  /* for each article */
-
-    /* get the article id */
-
-    /* find the title element */
-
-    /* get the title from the title element */
-
-    /* create HTML of the link */
-
-    /* insert link into titleList */
-
-}
-
-generateTitleLinks();
+  
+  generateTitleLinks();
