@@ -4,8 +4,8 @@ const templates = {
   tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
   authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
   tagCloudLink: Handlebars.compile(document.querySelector('#template-tagcloud-link').innerHTML),
-  authorCloudLink: Handlebars.compile(document.querySelector('#template-authorcloud-link').innerHTML),
-}
+  authorCloudLink: Handlebars.compile(document.querySelector('#template-authorcloud-link').innerHTML)
+};
 const titleClickHandler = function(event) {
   event.preventDefault();
   
@@ -30,14 +30,14 @@ const titleClickHandler = function(event) {
 };
 
 const optArticleSelector = '.post',
-      optTitleSelector = '.post-title',
-      optTitleListSelector = '.titles',
-      optArticleTagsSelector = '.post-tags .list',
-      optArticleAuthorSelector = '.post-author',
-      optTagsListSelector = '.tags.list',
-      optCloudClassCount = 5,
-      optCloudClassPrefix = 'tag-size-',
-      optAuthorsListSelector = '.authors-list';
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles',
+  optArticleTagsSelector = '.post-tags .list',
+  optArticleAuthorSelector = '.post-author',
+  optTagsListSelector = '.tags.list',
+  optCloudClassCount = 5,
+  optCloudClassPrefix = 'tag-size-',
+  optAuthorsListSelector = '.authors-list';
 
 function generateTitleLinks() {
   const titleList = document.querySelector(optTitleListSelector);
@@ -51,7 +51,7 @@ function generateTitleLinks() {
     const linkHTMLData = {id: articleId, title: articleTitle};
     const linkHTML = templates.articleLink(linkHTMLData);
     html += linkHTML;
-    const authorElement = article.querySelector('.post-author');
+    const authorElement = article.querySelector(optArticleAuthorSelector);
     if (authorElement) {
       authorElement.innerHTML = templates.authorLink({ author: articleAuthor });
     }
