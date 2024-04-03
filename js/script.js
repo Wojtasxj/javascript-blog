@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const linkHTMLData = { id: articleId, title: articleTitle };
       const linkHTML = templates.articleLink(linkHTMLData);
       html += linkHTML;
-      const authorElement = article.querySelector('.post-author');
+      const authorElement = article.querySelector(optArticleAuthorSelector);
       if (authorElement) {
         authorElement.innerHTML = templates.authorLink({ author: articleAuthor });
       }
